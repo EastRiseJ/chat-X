@@ -1,4 +1,5 @@
 import loading from './loading'
+import login from './login'
 
 const state = {
   title: '',
@@ -25,6 +26,7 @@ export default {
   state,
   mutations,
   modules: {
-    loading
+    loading,
+    login
   }
 }
