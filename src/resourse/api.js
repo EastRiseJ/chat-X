@@ -2,7 +2,7 @@ import Qs from 'qs'
 // import axios from 'axios'
 import axios from './axios'
 import domain from '../config/config'
-import store from '../store/'
+// import store from '../store/'
 let aParams = {
 
   url: '/get',

@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
+  import * as commonServices from '@/resourse/services/commonServices'
   import { Group, XInput, XButton } from 'vux'
 
   export default {
@@ -25,9 +25,12 @@
       }
     },
     methods: {
-      ...mapActions({
-        login: 'login'
-      })
+      login: function () {
+        commonServices.login({'email': this.email, 'password': this.password})
+          .then((data) => {
+            console.log(data)
+          })
+      }
     }
   }
 </script>
