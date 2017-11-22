@@ -18,7 +18,7 @@ let aParams = {
   ],
 
   headers: {
-    'Content-Type': 'application/json;charset=UTF-8;'
+    'Content-Type': 'application/json;charset=UTF-8'
   },
   contentType: 'application/json; charset=utf-8',
 
