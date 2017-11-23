@@ -2,7 +2,7 @@ import Qs from 'qs'
 // import axios from 'axios'
 import axios from './axios'
 import domain from '../config/config'
-import store from '../store/'
+// import store from '../store/'
 let aParams = {
 
   url: '/get',
@@ -18,7 +18,7 @@ let aParams = {
   ],
 
   headers: {
-    'Content-Type': 'application/json;charset=UTF-8;'
+    'Content-Type': 'application/json;charset=UTF-8'
   },
   contentType: 'application/json; charset=utf-8',
 

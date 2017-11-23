@@ -1,3 +1,3 @@
 export default {
-  baseURL: 'http://XXXXXXXX/chatx' // 开发
+  baseURL: 'http://localhost:3000' // 开发
 }

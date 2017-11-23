@@ -19,10 +19,8 @@ axios.interceptors.response.use((response) => {
 // 根据返回的code值来做不同的处理（和后端约定）
   switch (data.code) {
     case 0:
-      // console.log(0)
       return data
     case 1:
-      // console.log(1)
       return data
     default:
       break
