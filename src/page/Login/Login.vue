@@ -2,9 +2,9 @@
   <div id="login">
     <group>
       <!-- <xInput title="邮箱" type="text" v-model="email" is-type="email" required></xInput> -->
-       <xInput title="邮箱" type="text" v-model="email" required></xInput>
-       <xInput title="密码" type="password" v-model="password" required></xInput>
-       <x-button type="primary" @click.native="login()">登录</x-button>
+       <xInput title="邮箱" type="text" v-model="loginForm.email" required></xInput>
+       <xInput title="密码" type="password" v-model="loginForm.password" required></xInput>
+       <x-button type="primary" @click.native="login">登录</x-button>
     </group>
   </div>
 </template>
@@ -21,14 +21,15 @@
     name: 'login',
     data () {
       return {
-        email: '',
-        password: ''
+        loginForm: {
+          email: '',
+          password: ''
+        } // 登录参数
       }
     },
     methods: {
-      login: function () {
-        var that = this
-        commonServices.login({'email': that.email, 'password': that.password})
+      login () {
+        commonServices.login(this.loginForm)
           .then((data) => {})
       }
     }
