@@ -1,7 +1,7 @@
 <template>
   <div id="signup">
     <group>
-      <xInput title="用户名" type="text" v-model="signupForm.name" :max="2"  required></xInput>
+      <xInput title="用户名" type="text" v-model="signupForm.name" :max="12"  required></xInput>
       <xInput title="邮箱" type="email" v-model="signupForm.email" is-type="email" required></xInput>
        <xInput title="密码" type="password" v-model="signupForm.password" required></xInput>
        <x-button type="primary" @click.native="signup">注册</x-button>

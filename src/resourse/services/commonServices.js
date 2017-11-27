@@ -11,3 +11,8 @@ export const login = (data) => {
 export const logout = (data) => {
   return JAjax(JPost(JPorts.logout, data))
 }
+
+// 注册
+export const signup = (data) => {
+  return JAjax(JPost(JPorts.signup, data))
+}
