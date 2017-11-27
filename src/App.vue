@@ -15,4 +15,7 @@ export default {
 
 @import './assets/css/common.less';
 @import './assets/css/app.less';
+  #app{
+    height: 100%;
+  }
 </style>
