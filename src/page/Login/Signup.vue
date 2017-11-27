@@ -1,13 +1,13 @@
 <template>
-  <div id="login">
+  <div id="signup">
     <group>
-      <!-- <xInput title="邮箱" type="text" v-model="email" is-type="email" required></xInput> -->
-       <xInput title="邮箱" type="text" v-model="loginForm.email" required></xInput>
-       <xInput title="密码" type="password" v-model="loginForm.password" required></xInput>
-       <x-button type="primary" @click.native="login">登录</x-button>
+      <xInput title="用户名" type="text" v-model="signupForm.name" :max="2"  required></xInput>
+      <xInput title="邮箱" type="email" v-model="signupForm.email" is-type="email" required></xInput>
+       <xInput title="密码" type="password" v-model="signupForm.password" required></xInput>
+       <x-button type="primary" @click.native="signup">注册</x-button>
     </group>
     <div class="tip">
-      没有账号？ <router-link to="/signup">注册</router-link>
+      已有账号？ <router-link to="/login">登录</router-link>
     </div>
   </div>
 </template>
@@ -22,22 +22,21 @@
       XButton,
       Alert
     },
-    name: 'login',
+    name: 'signup',
     data () {
       return {
-        loginForm: {
+        signupForm: {
+          name: '',
           email: '',
           password: ''
         } // 登录参数
       }
     },
     methods: {
-      login () {
-        commonServices.login(this.loginForm)
+      signup () {
+        commonServices.signup(this.signupForm)
           .then((data) => {
             console.log(data)
-            const token = data.data.token
-            window.localStorage.setItem('chat_x_token', token)
             this.$vux.alert.show({
               content: data.message
             })
