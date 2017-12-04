@@ -4,7 +4,6 @@
 // import Hello from '@/components/Hello'
 import Login from '@/page/Login/Login.vue'
 import Signup from '@/page/Login/Signup.vue'
-import Home from '@/page/home/index.vue'
 
 const routes = [{
   path: '/',
@@ -18,13 +17,5 @@ const routes = [{
 {
   path: '/signup',
   component: Signup
-},
-{
-  path: '/home',
-  name: 'Home',
-  component: Home,
-  meta: {
-    requireAuth: true  // 添加该字段，表示进入这个路由是需要登录的
-  }
 }]
 export default routes

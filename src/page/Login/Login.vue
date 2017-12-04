@@ -1,8 +1,7 @@
 <template>
   <div id="login">
     <group>
-      <!-- <xInput title="邮箱" type="text" v-model="email" is-type="email" required></xInput> -->
-       <xInput title="邮箱" type="text" v-model="loginForm.email" required></xInput>
+       <xInput title="邮箱" type="text" v-model="loginForm.email" is-type="email" required></xInput>
        <xInput title="密码" type="password" v-model="loginForm.password" required></xInput>
        <x-button type="primary" @click.native="login">登录</x-button>
     </group>
@@ -36,10 +35,14 @@
         commonServices.login(this.loginForm)
           .then((data) => {
             console.log(data)
+            let _this = this
             const token = data.data.token
-            window.localStorage.setItem('chat_x_token', token)
+            window.localStorage.setItem('chatXToken', token)
             this.$vux.alert.show({
-              content: data.message
+              content: data.message,
+              onHide () {
+                _this.$router.push({ path: '/home' })
+              }
             })
           })
       }
