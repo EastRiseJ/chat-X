@@ -2,13 +2,13 @@
   <div id="chat_X_bottom">
     <ul class="clearfix">
       <li>
-        <router-link to="">信息</router-link>
+        <router-link to="/home/chats">信息</router-link>
       </li>
       <li>
-        <router-link to="">联系人</router-link>
+        <router-link to="/home/directories">联系人</router-link>
       </li>
       <li>
-        <router-link to="">我</router-link>
+        <router-link to="/home/user">我</router-link>
       </li>
     </ul>
   </div>
@@ -29,6 +29,9 @@
         float: left;
         width: 33.3333%;
         text-align: center;
+        a{
+          display: block;
+        }
       }
     }
   }

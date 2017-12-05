@@ -20,6 +20,19 @@ FastClick.attach(document.body)
 
 Vue.config.productionTip = false
 
+if (window.localStorage.getItem('chatXToken')) {
+  let id = window.localStorage.getItem('chatXID')
+  let token = window.localStorage.getItem('chatXToken')
+  let name = window.localStorage.getItem('chatXName')
+  let email = window.localStorage.getItem('chatXEmail')
+  store.commit('successLogin', {
+    id: id,
+    token: token,
+    name: name,
+    email: email
+  })
+}
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(r => r.meta.requireAuth)) {  // 判断该路由是否需要登录权限
     if (window.localStorage.getItem('chatXToken')) {  // 通过vuex state获取当前的token是否存在

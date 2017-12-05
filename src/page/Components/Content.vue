@@ -7,8 +7,12 @@
 </template>
 <style lang="less">
   #chat_X_content{
-    position:absolute;
-    left:0;
-    top: 50px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 3rem;
+    bottom: 3rem;
+    overflow-y: scroll;
+    background: #ebebeb;
   }
 </style>

@@ -1,12 +1,14 @@
 <template>
   <div id="login">
-    <group>
-       <xInput title="邮箱" type="text" v-model="loginForm.email" is-type="email" required></xInput>
-       <xInput title="密码" type="password" v-model="loginForm.password" required></xInput>
-       <x-button type="primary" @click.native="login">登录</x-button>
-    </group>
-    <div class="tip">
-      没有账号？ <router-link to="/signup">注册</router-link>
+    <div class="container">
+      <group>
+         <xInput title="邮箱" type="text" v-model="loginForm.email" is-type="email" required></xInput>
+         <xInput title="密码" type="password" v-model="loginForm.password" required></xInput>
+         <x-button type="primary" @click.native="login">登录</x-button>
+      </group>
+      <div class="tip">
+        没有账号？ <router-link to="/signup">注册</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -36,8 +38,17 @@
           .then((data) => {
             console.log(data)
             let _this = this
-            const token = data.data.token
+            let [id, token, name, email] = [data.data.id, data.data.token, data.data.name, data.data.email]
+            window.localStorage.setItem('chatXID', id)
             window.localStorage.setItem('chatXToken', token)
+            window.localStorage.setItem('chatXName', name)
+            window.localStorage.setItem('chatXEmail', email)
+            this.$store.commit('successLogin', {
+              id: id,
+              token: token,
+              name: name,
+              email: email
+            })
             this.$vux.alert.show({
               content: data.message,
               onHide () {
