@@ -2,12 +2,12 @@
   <div id="chats">
     <ul>
       <item
-      v-for="item in chatsList"
-      :id="item.id"
-      :avatar="item.avatar"
-      :name="item.name"
-      :message="item.message"
-      :date="item.date"
+      v-for="chat in chatsList"
+      :id="chat.id"
+      :avatar="chat.avatar"
+      :name="chat.name"
+      :message="chat.message"
+      :date="chat.date"
       ></item>
     </ul>
   </div>
