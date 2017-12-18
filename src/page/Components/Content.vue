@@ -14,5 +14,6 @@
     bottom: 3rem;
     overflow-y: scroll;
     background: #ebebeb;
+    z-index: 10;
   }
 </style>

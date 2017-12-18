@@ -24,6 +24,7 @@
     right: 0;
     color: #999999;
     border-top: 1px solid #d6d6d6;
+    z-index: 10;
     ul {
       li {
         float: left;

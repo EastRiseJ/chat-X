@@ -28,10 +28,5 @@
 </script>
 
 <style lang="less" scoped>
-.div-next{
-  width: 100%;
-  text-align: center;
-  font-size: 0.14rem;
-  line-height: 2.4em;
-}
+
 </style>
