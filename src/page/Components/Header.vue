@@ -38,8 +38,8 @@
   }
 </script>
 <style lang="less">
-  #chat_X_header,
-  #inner-header{
+  #chat_X_header{
+    position: absolute;
     height: 3rem;
     line-height: 3rem;
     background: #393a3f;

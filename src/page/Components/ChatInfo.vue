@@ -1,25 +1,26 @@
 <template>
-  <div id="directorie">
+  <div id="chat">
     <div id="inner-header">
       <div class="container clearfix">
         <div class="left fl">
             <a @click="hideDialog">< 返回</a>
         </div>
-      </div>
-    </div>
-    <div class="info">
-      <div class="container clearfix">
-        <div class="img fl">
-          <img :src="avatar ? avatar : defaultAvatar" alt="">
-        </div>
-        <div class="txt fr">
-          <p class="title">{{ name }}</p>
-          <p class="email">账号：{{ email }}</p>
+        <div class="right fr">
+          {{ name }}
         </div>
       </div>
     </div>
-    <div class="logout">
-      <x-button type="primary">发送信息</x-button>
+    <div class="chat-main">
+      <li v-for="item in message">
+        <div class="container clearfix">
+          <div class="img fl">
+            <img :src="avatar ? avatar : defaultAvatar" alt="">
+          </div>
+          <div class="txt fr">
+            <p class="title no-linefeed">{{ item.message }}</p>
+          </div>
+        </div>
+      </li>
     </div>
   </div>
 </template>
@@ -31,7 +32,7 @@
     components: {
       XButton
     },
-    props: ['id', 'avatar', 'name', 'email'],
+    props: ['id', 'avatar', 'name', 'message'],
     data () {
       return {
         defaultAvatar: '/static/avatar.png'
@@ -45,7 +46,7 @@
   }
 </script>
 <style lang="less" scoped>
-  #directorie{
+  #chat{
     position: fixed;
     z-index: 990;
     top: 0;
@@ -54,17 +55,20 @@
     right: 0;
     background: #fff;
   }
-  .info{
-    padding: 0.2rem 0;
-    background: #fff;
+  .chat-main{
+    padding-top: 0.3rem;
+    li{
+      margin: 0.2rem 0;
+    }
     .img{
-      width: 16%;
+      width: 10%;
       img{
         width: 100%;
       }
     }
     .txt{
-      width: 78%;
+      width: 84%;
+      background: #eee;
       padding-top: 0.44rem;
       .title{
         font-weight: bold;
@@ -75,7 +79,5 @@
       }
     }
   }
-  .logout{
-    margin-top: 1rem;
-  }
+
 </style>

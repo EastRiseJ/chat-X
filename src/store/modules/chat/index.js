@@ -4,78 +4,31 @@ const state = {
       id: '1',
       avatar: '',
       name: 'cc',
-      message: ['hi', 'w'],
-      date: '10-10'
+      message: [
+        {
+          message: 'hi',
+          data: '1496311370052'
+        },
+        {
+          message: '你好',
+          data: '1496311370052'
+        }
+      ]
     },
     {
       id: '1',
       avatar: '',
       name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
-    },
-    {
-      id: '1',
-      avatar: '',
-      name: 'cc',
-      message: ['你好'],
-      date: '10-10'
+      message: [
+        {
+          message: 'hi',
+          data: '1496311370052'
+        },
+        {
+          message: '你好',
+          data: '1496311370052'
+        }
+      ]
     }
   ]
 }

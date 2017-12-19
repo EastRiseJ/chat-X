@@ -24,6 +24,29 @@
 </script>
 <style lang="less">
   #chat_X_home{
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  #inner-header{
+    height: 3rem;
+    line-height: 3rem;
+    background: #393a3f;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    a{
+      color: #fff;
+    }
+    .vux-search-box{
+      color: #888;
+      line-height: 1.6em;
+      a{
+        color: #888;
+      }
+    }
   }
 </style>

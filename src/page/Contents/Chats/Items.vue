@@ -1,26 +1,56 @@
 <template>
-  <li class="chats-item">
+  <li class="chats-item" @click="showDialog">
     <div class="container clearfix">
       <div class="img fl">
         <img :src="avatar ? avatar : defaultAvatar" alt="">
       </div>
       <div class="txt fr">
         <p class="title no-linefeed">{{ name }}</p>
-        <p class="message no-linefeed">{{ message[message.length - 1] }}</p>
+        <p class="message no-linefeed">{{ message[message.length - 1].message }}</p>
         <div class="date">
-          {{ date }}
+          {{ message[message.length - 1].data | interceptDate }}
         </div>
       </div>
     </div>
+    <chat-info
+    v-show="isShow"
+    @hideDialog="hideDialog"
+    :id="id"
+    :avatar="avatar"
+    :name="name"
+    :message="message"
+    ></chat-info>
   </li>
 </template>
 
 <script>
+  import chatInfo from '../../Components/ChatInfo.vue'
+  import { formatDatePlus } from '../../../assets/js/date.js'
   export default {
-    props: ['id', 'avatar', 'name', 'message', 'date'],
+    components: {
+      chatInfo
+    },
+    props: ['id', 'avatar', 'name', 'message'],
     data () {
       return {
-        defaultAvatar: '/static/avatar.png'
+        defaultAvatar: '/static/avatar.png',
+        isShow: false
+      }
+    },
+    filters: {
+      interceptDate: (value) => {
+        let date = new Date(parseFloat(value))
+        return formatDatePlus(date)
+      }
+    },
+    methods: {
+      showDialog () {
+        this.isShow = true
+      },
+      hideDialog () {
+        this.$nextTick(() => {
+          this.isShow = false
+        })
       }
     }
   }
@@ -41,7 +71,7 @@
       position: relative;
       width: 78%;
       padding-top: 0.44rem;
-      padding-right: 4em;
+      padding-right: 3.4em;
       .title{
         font-weight: bold;
       }
@@ -51,9 +81,10 @@
       }
       .date{
         position: absolute;
-        width: 4em;
+        width: 3em;
         right: 0;
         top: 0;
+        padding-top: 1em;
       }
     }
   }

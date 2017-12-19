@@ -9,7 +9,7 @@
       </div>
     </div>
     <directorie-info
-    v-if="isShow"
+    v-show="isShow"
     @hideDialog="hideDialog"
     :id="id"
     :avatar="avatar"
@@ -37,8 +37,9 @@
         this.isShow = true
       },
       hideDialog () {
-        this.isShow = false
-        alert(this.name)
+        this.$nextTick(() => {
+          this.isShow = false
+        })
       }
     }
   }

@@ -7,7 +7,6 @@
       :avatar="chat.avatar"
       :name="chat.name"
       :message="chat.message"
-      :date="chat.date"
       ></item>
     </ul>
   </div>
