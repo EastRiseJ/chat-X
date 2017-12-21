@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+  import * as commonServices from '@/resourse/services/commonServices'
   import CHeader from '../Components/Header.vue'
   import CContent from '../Components/Content.vue'
   import CFooter from '../Components/Footer.vue'
@@ -19,6 +20,16 @@
       CHeader,
       CContent,
       CFooter
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        console.log('cc')
+        commonServices.directories()
+          .then((data) => {
+            console.log(data)
+            this.$store.commit('directoriesList', data)
+          })
+      })
     }
   }
 </script>

@@ -19,7 +19,7 @@ let aParams = {
 
   headers: {
     'Content-Type': 'application/json;charset=utf-8',
-    'Authorization': window.localStorage.getItem('chatXToken')
+    'Authorization': 'Bearer ' + window.localStorage.getItem('chatXToken')
   },
   contentType: 'application/json; charset=utf-8',
 

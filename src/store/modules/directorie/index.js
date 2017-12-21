@@ -20,7 +20,9 @@ const getters = {
 }
 
 const mutations = {
-
+  'getDirectoriesList' (state, payload) {
+    state.directoriesList = payload
+  }
 }
 export default {
   state,

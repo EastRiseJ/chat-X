@@ -16,3 +16,8 @@ export const logout = (data) => {
 export const signup = (data) => {
   return JAjax(JPost(JPorts.signup, data))
 }
+
+// 获取联系人
+export const directories = (data) => {
+  return JAjax(JPost(JPorts.directories, data))
+}
