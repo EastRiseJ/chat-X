@@ -27,7 +27,7 @@
         commonServices.directories()
           .then((data) => {
             console.log(data)
-            this.$store.commit('directoriesList', data)
+            this.$store.commit('getDirectoriesList', data.data.list)
           })
       })
     }
