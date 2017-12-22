@@ -38,7 +38,7 @@
           .then((data) => {
             console.log(data)
             let _this = this
-            let [id, token, name, email] = [data.data.id, data.data.token, data.data.name, data.data.email]
+            let [id, token, name, email, directories] = [data.data.id, data.data.token, data.data.name, data.data.email, data.data.list]
             window.localStorage.setItem('chatXID', id)
             window.localStorage.setItem('chatXToken', token)
             window.localStorage.setItem('chatXName', name)
@@ -49,6 +49,7 @@
               name: name,
               email: email
             })
+            this.$store.commit('getDirectoriesList', directories)
             this.$vux.alert.show({
               content: data.message,
               onHide () {

@@ -18,6 +18,6 @@ export const signup = (data) => {
 }
 
 // 获取联系人
-export const directories = (data) => {
-  return JAjax(JPost(JPorts.directories, data))
+export const searchUser = (data) => {
+  return JAjax(JPost(JPorts.searchUser, data))
 }
