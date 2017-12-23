@@ -1,11 +1,13 @@
 <template>
   <div id="chat_X_header">
-    <div class="container clearfix">
-      <div class="left fl">
-          Chat X（100）
-      </div>
-      <div class="right fr">
-        <a @click="isShow = !isShow">搜索</a>
+    <div class="header">
+      <div class="container clearfix">
+        <div class="left fl">
+            Chat X（100）
+        </div>
+        <div class="right fr">
+          <a @click="isShow = !isShow">搜索</a>
+        </div>
       </div>
     </div>
     <div id="search" v-if="isShow">
@@ -66,11 +68,11 @@
     },
     methods: {
       getResult (val) {
-        this.tip = ''
         this.items = val ? getResult(this.searchForm.email) : []
       },
       resultClick (item) {
         let _this = this
+        this.tip = ''
         commonServices.searchUser(this.searchForm)
         .then((data) => {
           console.log(data)
@@ -99,24 +101,24 @@
 </script>
 <style lang="less">
   #chat_X_header{
-    position: absolute;
-    height: 3rem;
-    line-height: 3rem;
-    background: #393a3f;
-    top: 0;
-    left: 0;
-    right: 0;
-    & > .container{
+    .header{
+      position: absolute;
+      height: 3rem;
+      line-height: 3rem;
+      background: #393a3f;
+      top: 0;
+      left: 0;
+      right: 0;
       color: #fff;
       a{
         color: #fff;
       }
-    }
-    .vux-search-box{
-      color: #888;
-      line-height: 1.6em;
-      a{
+      .vux-search-box{
         color: #888;
+        line-height: 1.6em;
+        a{
+          color: #888;
+        }
       }
     }
   }

@@ -25,12 +25,16 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import { XButton } from 'vux'
 
   export default {
     components: {
       XButton
     },
+    computed: mapGetters({
+      directoriesList: 'directoriesList'
+    }),
     props: ['id', 'avatar', 'name', 'email'],
     data () {
       return {
@@ -41,6 +45,13 @@
       hideDialog () {
         this.$emit('hideDialog')
       }
+    },
+    mounted: function () {
+      this.$nextTick(() => {
+        for (let [index, elem] of this.directoriesList.entries()) {
+          console.log(index, elem)
+        }
+      })
     }
   }
 </script>
