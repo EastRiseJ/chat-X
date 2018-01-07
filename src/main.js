@@ -34,6 +34,7 @@ if (window.localStorage.getItem('chatXToken')) {
     name: name,
     email: email
   })
+  store.commit('getDirectoriesList', JSON.parse(window.localStorage.getItem('chatXDirectories')))
 }
 
 router.beforeEach((to, from, next) => {

@@ -3,7 +3,7 @@
     <ul>
       <item
       v-for="directorie in directoriesList"
-      :id="directorie.id"
+      :id="directorie._id"
       :avatar="directorie.avatar"
       :name="directorie.name"
       :email="directorie.email"

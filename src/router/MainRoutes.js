@@ -5,6 +5,7 @@ import Home from '@/page/home/'
 import Chats from '@/page/Contents/Chats'
 import Directories from '@/page/Contents/Directories'
 import User from '@/page/Contents/User'
+import ChatOne from '@/page/Contents/Chats/ChatOne'
 
 const routes = [{
   path: '/home',
@@ -34,5 +35,10 @@ const routes = [{
       component: User
     }
   ]
+},
+{
+  path: '/chat_one/:id',
+  name: 'ChatOne',
+  component: ChatOne
 }]
 export default routes

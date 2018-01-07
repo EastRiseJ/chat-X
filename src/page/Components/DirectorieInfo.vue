@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="logout">
-      <x-button type="primary">发送信息</x-button>
+      <x-button type="primary" @click.native="chatOne">发送信息</x-button>
     </div>
   </div>
 </template>
@@ -44,6 +44,9 @@
     methods: {
       hideDialog () {
         this.$emit('hideDialog')
+      },
+      chatOne () {
+        this.$router.push({ path: `/chat_one/${this.id}` })
       }
     },
     mounted: function () {

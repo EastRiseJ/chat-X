@@ -43,6 +43,7 @@
             window.localStorage.setItem('chatXToken', token)
             window.localStorage.setItem('chatXName', name)
             window.localStorage.setItem('chatXEmail', email)
+            window.localStorage.setItem('chatXDirectories', JSON.stringify(directories))
             this.$store.commit('successLogin', {
               id: id,
               token: token,

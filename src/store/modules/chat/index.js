@@ -16,7 +16,7 @@ const state = {
       ]
     },
     {
-      id: '1',
+      id: '5a521c44ec7c722908b462b4',
       avatar: '',
       name: 'cc',
       message: [
@@ -25,7 +25,7 @@ const state = {
           data: '1496311370052'
         },
         {
-          message: '你好',
+          message: '你好2',
           data: '1496311370052'
         }
       ]

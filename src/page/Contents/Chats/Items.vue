@@ -1,5 +1,5 @@
 <template>
-  <li class="chats-item" @click="showDialog">
+  <li class="chats-item" @click="chatOne">
     <div class="container clearfix">
       <div class="img fl">
         <img :src="avatar ? avatar : defaultAvatar" alt="">
@@ -12,24 +12,12 @@
         </div>
       </div>
     </div>
-    <chat-info
-    v-show="isShow"
-    @hideDialog="hideDialog"
-    :id="id"
-    :avatar="avatar"
-    :name="name"
-    :message="message"
-    ></chat-info>
   </li>
 </template>
 
 <script>
-  import chatInfo from '../../Components/ChatInfo.vue'
   import { formatDatePlus } from '../../../assets/js/date.js'
   export default {
-    components: {
-      chatInfo
-    },
     props: ['id', 'avatar', 'name', 'message'],
     data () {
       return {
@@ -44,13 +32,8 @@
       }
     },
     methods: {
-      showDialog () {
-        this.isShow = true
-      },
-      hideDialog () {
-        this.$nextTick(() => {
-          this.isShow = false
-        })
+      chatOne () {
+        this.$router.push({ path: `/chat_one/${this.id}` })
       }
     }
   }
