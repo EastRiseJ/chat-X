@@ -14,7 +14,7 @@
       <li v-for="item in chat.message">
         <div class="container clearfix">
           <div class="img fl">
-            <img :src="avatar ? avatar : defaultAvatar" alt="">
+            <img :src="item.avatar ? item.avatar : defaultAvatar" alt="">
           </div>
           <div class="txt fr">
             <p class="title no-linefeed">{{ item.message }}</p>
@@ -22,22 +22,29 @@
         </div>
       </li>
     </div>
+    <div class="chat-bottom">
+      <div class="container">
+        <form class="clearfix" action="" method="/">
+          <div class="fl">
+            <input class="" type="text" name="" value="">
+          </div>
+          <input class="fr" type="submit" name="" value="发送">
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import { mapGetters } from 'vuex'
-  import { XButton } from 'vux'
 
   export default {
     name: 'ChatOne',
-    components: {
-      XButton
-    },
     data () {
       return {
         user_id: '',
         chat: '',
+        value: '',
         defaultAvatar: '/static/avatar.png'
       }
     },
@@ -46,7 +53,7 @@
     }),
     mounted () {
       this.user_id = this.$route.params.id
-      this.message = this.getMessage(this.user_id)
+      this.message = this.getMessage()
     },
     methods: {
       getMessage () {
@@ -60,7 +67,6 @@
 <style lang="less" scoped>
   #chat_one{
     position: fixed;
-    z-index: 990;
     top: 0;
     bottom: 0;
     left: 0;
@@ -68,6 +74,13 @@
     background: #fff;
   }
   .chat-main{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3rem;
+    bottom: 3rem;
+    overflow-y: scroll;
+    background: #fff;
     padding-top: 0.3rem;
     li{
       margin: 0.2rem 0;
@@ -89,6 +102,39 @@
         padding-top: 0.1rem;
         color: #999999;
       }
+    }
+  }
+  .chat-bottom{
+    position: absolute;
+    height: 3rem;
+    line-height: 3rem;
+    background: #fcfcfc;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #999999;
+    padding-top: 0.28rem;
+    border-top: 1px solid #d6d6d6;
+    form{
+      position: relative;
+    }
+    input{
+      line-height: 2.4rem;
+    }
+    .fl{
+      width: 100%;
+      padding-right: 110px;
+    }
+    input[type="text"]{
+      display: block;
+      border-bottom: 1px solid #ff0000;
+      width: 100%;
+    }
+    input[type="submit"]{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
     }
   }
 
