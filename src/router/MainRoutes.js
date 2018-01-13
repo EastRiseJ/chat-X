@@ -6,6 +6,7 @@ import Chats from '@/page/Contents/Chats'
 import Directories from '@/page/Contents/Directories'
 import User from '@/page/Contents/User'
 import ChatOne from '@/page/Contents/Chats/ChatOne'
+import DirectorieInfo from '@/page/Contents/Directories/DirectorieInfo'
 
 const routes = [{
   path: '/home',
@@ -40,5 +41,11 @@ const routes = [{
   path: '/chat_one/:id',
   name: 'ChatOne',
   component: ChatOne
+},
+{
+  path: '/directorie_info',
+  name: 'DirectorieInfo',
+  component: DirectorieInfo,
+  props: true
 }]
 export default routes

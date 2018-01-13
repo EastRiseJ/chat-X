@@ -1,5 +1,5 @@
 <template>
-  <li class="directories-item" @click="showDialog">
+  <li class="directories-item" @click="directorieInfo">
     <div class="container clearfix">
       <div class="img fl">
         <img :src="avatar ? avatar : defaultAvatar" alt="">
@@ -8,38 +8,20 @@
         <p class="title no-linefeed">{{ name }}</p>
       </div>
     </div>
-    <directorie-info
-    v-show="isShow"
-    @hideDialog="hideDialog"
-    :id="id"
-    :avatar="avatar"
-    :name="name"
-    :email="email"
-    ></directorie-info>
   </li>
 </template>
 
 <script>
-  import directorieInfo from '../../Components/DirectorieInfo.vue'
   export default {
-    components: {
-      directorieInfo
-    },
     props: ['id', 'avatar', 'name', 'email'],
     data () {
       return {
-        defaultAvatar: '/static/avatar.png',
-        isShow: false
+        defaultAvatar: '/static/avatar.png'
       }
     },
     methods: {
-      showDialog () {
-        this.isShow = true
-      },
-      hideDialog () {
-        this.$nextTick(() => {
-          this.isShow = false
-        })
+      directorieInfo () {
+        this.$router.push({ name: 'DirectorieInfo', params: {id: this.id, avatar: this.avatar, name: this.name, email: this.email} })
       }
     }
   }

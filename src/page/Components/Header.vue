@@ -25,14 +25,6 @@
       v-model="searchForm.email"
       :results="items"
       ref="search"></search>
-      <directorie-info
-      v-if="isShowInfo"
-      @hideDialog="hideDialog"
-      :id="result.id"
-      :avatar="result.avatar"
-      :name="result.name"
-      :email="result.email"
-      ></directorie-info>
       <div class="result">
         {{ tip }}
       </div>
@@ -42,12 +34,10 @@
 
 <script>
   import * as commonServices from '@/resourse/services/commonServices'
-  import directorieInfo from './DirectorieInfo.vue'
   import { Search } from 'vux'
   export default {
     components: {
-      Search,
-      directorieInfo
+      Search
     },
     data () {
       return {
@@ -56,13 +46,6 @@
         searchForm: {
           email: ''
         },
-        result: {
-          id: '',
-          avatar: '',
-          name: '',
-          email: ''
-        },
-        isShowInfo: false,
         tip: ''
       }
     },
@@ -76,16 +59,7 @@
         commonServices.searchUser(this.searchForm)
         .then((data) => {
           console.log(data)
-          data.code === 0 ? _this.isShowInfo = true : _this.tip = data.message
-          _this.result = data.data
-        })
-      },
-      showDialog () {
-        this.isShowInfo = true
-      },
-      hideDialog () {
-        this.$nextTick(() => {
-          this.isShowInfo = false
+          data.code === 0 ? _this.$router.push({ name: 'DirectorieInfo', params: {id: data.data.id, avatar: data.data.avatar, name: data.data.name, email: data.data.email} }) : _this.tip = data.message
         })
       }
     }

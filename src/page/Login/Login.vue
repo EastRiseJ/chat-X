@@ -51,6 +51,7 @@
               email: email
             })
             this.$store.commit('getDirectoriesList', directories)
+            this.$socket.emit('login', id)
             this.$vux.alert.show({
               content: data.message,
               onHide () {
