@@ -20,7 +20,7 @@
     </div>
     <div class="logout">
       <x-button type="primary" @click.native="chatOne" v-if="flag">发送信息</x-button>
-      <x-button type="primary" v-else>增加到联系人</x-button>
+      <x-button type="primary" @click.native="addToDirectorie" v-else>增加到联系人</x-button>
     </div>
   </div>
 </template>
@@ -47,6 +47,9 @@
     methods: {
       chatOne () {
         this.$router.push({ path: `/chat_one/${this.id}` })
+      },
+      addToDirectorie () {
+        this.$socket.emit('addToDirectorie', this.id)
       },
       backTo () {
         this.$router.go(-1)

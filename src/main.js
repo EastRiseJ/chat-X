@@ -28,13 +28,16 @@ if (window.localStorage.getItem('chatXToken')) {
   let token = window.localStorage.getItem('chatXToken')
   let name = window.localStorage.getItem('chatXName')
   let email = window.localStorage.getItem('chatXEmail')
+  let directories = JSON.parse(window.localStorage.getItem('chatXDirectories'))
+  let chats = JSON.parse(window.localStorage.getItem('chatXChats'))
   store.commit('successLogin', {
     id: id,
     token: token,
     name: name,
     email: email
   })
-  store.commit('getDirectoriesList', JSON.parse(window.localStorage.getItem('chatXDirectories')))
+  store.commit('directoriesList', directories)
+  store.commit('chatsList', chats)
 }
 
 router.beforeEach((to, from, next) => {

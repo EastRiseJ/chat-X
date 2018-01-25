@@ -10,6 +10,7 @@
   import CContent from '../Components/Content.vue'
   import CFooter from '../Components/Footer.vue'
 
+
   export default {
     data () {
       return {

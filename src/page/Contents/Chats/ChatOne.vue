@@ -24,11 +24,11 @@
     </div>
     <div class="chat-bottom">
       <div class="container">
-        <form class="clearfix" action="" method="/">
+        <form class="clearfix">
           <div class="fl">
-            <input class="" type="text" name="" value="">
+            <input class="" type="text" name="" v-model="value">
           </div>
-          <input class="fr" type="submit" name="" value="发送">
+          <input class="fr" type="submit" name="" value="发送" @click="send()">
         </form>
       </div>
     </div>
@@ -42,24 +42,38 @@
     name: 'ChatOne',
     data () {
       return {
-        user_id: '',
+        otherUserId: '',
         chat: '',
         value: '',
         defaultAvatar: '/static/avatar.png'
       }
     },
     computed: mapGetters({
-      chatsList: 'chatsList'
+      chatsList: 'chatsList',
+      userInfo: 'userInfo'
     }),
     mounted () {
-      this.user_id = this.$route.params.id
+      this.otherUserId = this.$route.params.id
       this.message = this.getMessage()
     },
     methods: {
       getMessage () {
         this.chatsList.forEach(item => {
-          item.id === this.user_id ? this.chat = item : ''
+          item.id === this.otherUserId ? this.chat = item : ''
         })
+      },
+      send () {
+        if (this.value.trim() === '') {
+
+        } else {
+          console.log(this.otherUserId)
+          this.$socket.emit('message', {
+            userId: this.userInfo.id,
+            otherUserId: this.otherUserId,
+            message: this.value
+          })
+        }
+        return false
       }
     }
   }

@@ -7,7 +7,7 @@ const getters = {
 }
 
 const mutations = {
-  'getDirectoriesList' (state, payload) {
+  'directoriesList' (state, payload) {
     state.directoriesList = payload
     console.log(state.directoriesList)
   }
