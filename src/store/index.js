@@ -4,6 +4,7 @@ import common from './modules/common'
 import user from './modules/user'
 import chat from './modules/chat'
 import directorie from './modules/directorie'
+import socket from './modules/socket'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     common,
     user,
     chat,
-    directorie
+    directorie,
+    socket
   }
 })

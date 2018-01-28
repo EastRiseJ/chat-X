@@ -6,19 +6,7 @@
 
 <script>
 export default {
-  name: 'app',
-  created: function () {
-    this.updateBySocket()
-  },
-  methods: {
-    updateBySocket () {
-      this.$socket.removeAllListeners()
-      console.log('ccccc')
-      this.$socket.on('getMessage', (data) => {
-        console.log('222')
-      })
-    }
-  }
+  name: 'app'
 }
 </script>
 
