@@ -19,8 +19,10 @@
       </div>
     </div>
     <div class="logout">
-      <x-button type="primary" @click.native="chatOne" v-if="flag">发送信息</x-button>
-      <x-button type="primary" @click.native="addToDirectorie" v-else>增加到联系人</x-button>
+      //修改意见：prop 当前状态来显示
+      <x-button type="primary" @click.native="agree" v-if="isAdd">同意</x-button>
+      <x-button type="primary" @click.native="chatOne" v-else-if="flag">发送信息</x-button>
+      <x-button type="primary" @click.native="addDirectorie" v-else>增加到联系人</x-button>
     </div>
   </div>
 </template>
@@ -35,12 +37,15 @@
       XButton
     },
     computed: mapGetters({
-      directoriesList: 'directoriesList'
+      directoriesList: 'directoriesList',
+      addList: 'addList',
+      userInfo: 'userInfo'
     }),
     props: ['id', 'avatar', 'name', 'email'],
     data () {
       return {
         flag: 'false',
+        isAdd: 'false',
         defaultAvatar: '/static/avatar.png'
       }
     },
@@ -48,8 +53,11 @@
       chatOne () {
         this.$router.push({ path: `/chat_one/${this.id}` })
       },
-      addToDirectorie () {
-        this.$socket.emit('addToDirectorie', this.id)
+      addDirectorie () {
+        this.$socket.emit('addDirectorie', this.userInfo.id, this.id)
+      },
+      agree () {
+        this.$socket.emit('addDirectorieAgree', this.userInfo.id, this.id)
       },
       backTo () {
         this.$router.go(-1)
@@ -60,6 +68,9 @@
       let _this = this
       for (let elem of this.directoriesList.values()) {
         _this.id === elem._id ? _this.flag = true : _this.flag = false
+      }
+      for (let elem of this.addList.values()) {
+        _this.id === elem._id ? _this.isAdd = true : _this.isAdd = false
       }
     }
   }

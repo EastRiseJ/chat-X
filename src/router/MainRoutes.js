@@ -7,6 +7,7 @@ import Directories from '@/page/Contents/Directories'
 import User from '@/page/Contents/User'
 import ChatOne from '@/page/Contents/Chats/ChatOne'
 import DirectorieInfo from '@/page/Contents/Directories/DirectorieInfo'
+import DirectorieAddlist from '@/page/Contents/Directories/DirectorieAddlist'
 
 const routes = [{
   path: '/home',
@@ -47,5 +48,10 @@ const routes = [{
   name: 'DirectorieInfo',
   component: DirectorieInfo,
   props: true
+},
+{
+  path: '/directorie_addlist',
+  name: 'DirectorieAddlist',
+  component: DirectorieAddlist
 }]
 export default routes

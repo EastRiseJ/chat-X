@@ -1,13 +1,15 @@
 <template>
-  <div id="directories">
-    <ul>
-      <li class="addlist" @click="directorieInfo">
-        <div class="container">
-          好友增加请求
+  <div id="addlist">
+    <div id="inner-header">
+      <div class="container clearfix">
+        <div class="left fl">
+            <a @click="backTo">< 返回</a>
         </div>
-      </li>
+      </div>
+    </div>
+    <ul>
       <item
-      v-for="directorie in directoriesList"
+      v-for="directorie in addList"
       :id="directorie._id"
       :avatar="directorie.avatar"
       :name="directorie.name"
@@ -22,24 +24,20 @@
   import Item from './items.vue'
 
   export default {
+    name: 'DirectorieAddlist',
     components: {
       Item
     },
     computed: mapGetters({
-      directoriesList: 'directoriesList'
+      addList: 'addList'
     }),
     methods: {
-      directorieInfo () {
-        this.$router.push({ name: 'DirectorieAddlist' })
+      backTo () {
+        this.$router.go(-1)
       }
     }
   }
 </script>
-
 <style lang="less" scoped>
-  .addlist{
-    line-height: 3em;
-    padding-left: 0;
-    border-bottom:1px solid #f4f4f4;
-  }
+
 </style>

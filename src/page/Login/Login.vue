@@ -50,7 +50,7 @@
               name: name,
               email: email
             })
-            this.$store.commit('getDirectoriesList', directories)
+            this.$store.commit('directoriesList', directories)
             this.$socket.emit('login', id)
             this.$vux.alert.show({
               content: data.message,

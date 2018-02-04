@@ -9,20 +9,16 @@ import router from './router/index'
 import store from './store/index'
 import App from './App'
 import VueSocketio from 'vue-socket.io'
-
-Vue.use(VueSocketio, 'http://localhost:3001', store)
-
 import { AlertPlugin, ConfirmPlugin, ToastPlugin } from 'vux'
 Vue.use(AlertPlugin)
 Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)
-
 Vue.use(VueRouter)
+Vue.use(VueSocketio, `http://localhost:3001?token=${window.localStorage.getItem('chatXToken')}`, store)
 
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
-
 if (window.localStorage.getItem('chatXToken')) {
   let id = window.localStorage.getItem('chatXID')
   let token = window.localStorage.getItem('chatXToken')

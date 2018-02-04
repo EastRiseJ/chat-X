@@ -1,26 +1,25 @@
 const state = {
   connect: false,
-  message: null
+  addList: []
 }
 
 const getters = {
-  userInfo: state => state.userInfo
+  addList: state => state.addList
 }
 
 const mutations = {
   SOCKET_CONNECT: (state) => {
     state.connect = true
   },
-  SOCKET_GET_MESSAGE: (state, message) => {
-    state.message = message
-    console.log(message)
+  SOCKET_ADD_DIRECTORIE: (state, data) => {
+    state.addList.unshift(data)
   }
 }
 
 const actions = {
-  socket_getMessage: (context, message) => {
+  socket_addDirectorie: (context, data) => {
     // context.dispatch('newMessage', message)
-    context.commit('SOCKET_GET_MESSAGE', message)
+    context.commit('SOCKET_ADD_DIRECTORIE', data)
   }
 }
 
