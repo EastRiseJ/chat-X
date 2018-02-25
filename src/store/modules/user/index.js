@@ -16,7 +16,7 @@ const getters = {
 const mutations = {
   'successLogin' (state, payload) {
     state.status = true
-    Object.assign(state.userInfo, payload)
+    state.userInfo = Object.assign({}, state.userInfo, payload)
   },
   'successLogout' (state) {
     state.status = false

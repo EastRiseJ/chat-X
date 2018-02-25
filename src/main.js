@@ -19,22 +19,22 @@ Vue.use(VueSocketio, `http://localhost:3001?token=${window.localStorage.getItem(
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
-if (window.localStorage.getItem('chatXToken')) {
-  let id = window.localStorage.getItem('chatXID')
-  let token = window.localStorage.getItem('chatXToken')
-  let name = window.localStorage.getItem('chatXName')
-  let email = window.localStorage.getItem('chatXEmail')
-  let directories = JSON.parse(window.localStorage.getItem('chatXDirectories'))
-  let chats = JSON.parse(window.localStorage.getItem('chatXChats'))
-  store.commit('successLogin', {
-    id: id,
-    token: token,
-    name: name,
-    email: email
-  })
-  store.commit('directoriesList', directories)
-  store.commit('chatsList', chats)
-}
+// if (window.localStorage.getItem('chatXToken')) {
+//   let id = window.localStorage.getItem('chatXID')
+//   let token = window.localStorage.getItem('chatXToken')
+//   let name = window.localStorage.getItem('chatXName')
+//   let email = window.localStorage.getItem('chatXEmail')
+//   let directories = JSON.parse(window.localStorage.getItem('chatXDirectories'))
+let chats = JSON.parse(window.localStorage.getItem('chatXChats')) || {}
+//   store.commit('successLogin', {
+//     id: id,
+//     token: token,
+//     name: name,
+//     email: email
+//   })
+//   store.commit('directoriesList', directories)
+store.commit('chatsList', chats)
+// }
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(r => r.meta.requireAuth)) {  // 判断该路由是否需要登录权限

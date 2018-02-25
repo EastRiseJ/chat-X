@@ -58,7 +58,6 @@
         this.tip = ''
         commonServices.searchUser(this.searchForm)
         .then((data) => {
-          console.log(data)
           data.code === 0 ? _this.$router.push({ name: 'DirectorieInfo', params: {id: data.data.id, avatar: data.data.avatar, name: data.data.name, email: data.data.email} }) : _this.tip = data.message
         })
       }

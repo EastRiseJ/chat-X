@@ -19,7 +19,6 @@
       </div>
     </div>
     <div class="logout">
-      //修改意见：prop 当前状态来显示
       <x-button type="primary" @click.native="agree" v-if="isAdd">同意</x-button>
       <x-button type="primary" @click.native="chatOne" v-else-if="flag">发送信息</x-button>
       <x-button type="primary" @click.native="addDirectorie" v-else>增加到联系人</x-button>
@@ -38,14 +37,14 @@
     },
     computed: mapGetters({
       directoriesList: 'directoriesList',
-      addList: 'addList',
+      addListRes: 'addListRes',
       userInfo: 'userInfo'
     }),
     props: ['id', 'avatar', 'name', 'email'],
     data () {
       return {
-        flag: 'false',
-        isAdd: 'false',
+        flag: false,
+        isAdd: false,
         defaultAvatar: '/static/avatar.png'
       }
     },
@@ -64,12 +63,11 @@
       }
     },
     created: function () {
-      // 根据 id 查询数据，与本地数据比较
       let _this = this
       for (let elem of this.directoriesList.values()) {
         _this.id === elem._id ? _this.flag = true : _this.flag = false
       }
-      for (let elem of this.addList.values()) {
+      for (let elem of this.addListRes.values()) {
         _this.id === elem._id ? _this.isAdd = true : _this.isAdd = false
       }
     }

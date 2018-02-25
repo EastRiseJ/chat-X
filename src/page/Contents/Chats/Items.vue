@@ -8,7 +8,7 @@
         <p class="title no-linefeed">{{ name }}</p>
         <p class="message no-linefeed">{{ message[message.length - 1].message }}</p>
         <div class="date">
-          {{ message[message.length - 1].data | interceptDate }}
+          {{ message[message.length - 1].date | interceptDate }}
         </div>
       </div>
     </div>
@@ -64,7 +64,8 @@
       }
       .date{
         position: absolute;
-        width: 3em;
+        width: 22%;
+        text-align: right;
         right: 0;
         top: 0;
         padding-top: 1em;

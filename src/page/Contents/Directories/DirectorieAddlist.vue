@@ -15,6 +15,9 @@
       :name="directorie.name"
       :email="directorie.email"
       ></item>
+      <div class="tip" v-show="!addList.length">
+        <span>暂无好友添加请求</span>
+      </div>
     </ul>
   </div>
 </template>
@@ -29,7 +32,7 @@
       Item
     },
     computed: mapGetters({
-      addList: 'addList'
+      addList: 'addListRes'
     }),
     methods: {
       backTo () {

@@ -28,34 +28,5 @@
 </script>
 
 <style lang="less" scoped>
-  .directories-item{
-    padding: 0.2rem 0;
-    background: #fff;
-    border-bottom:1px solid #f4f4f4;
-    .img{
-      width: 12%;
-      img{
-        width: 100%;
-      }
-    }
-    .txt{
-      position: relative;
-      width: 82%;
-      padding-top: 0.46rem;
-      padding-right: 4em;
-      .title{
-        font-weight: bold;
-      }
-      .message{
-        padding-top: 0.1rem;
-        color: #999999;
-      }
-      .date{
-        position: absolute;
-        width: 4em;
-        right: 0;
-        top: 0;
-      }
-    }
-  }
+  
 </style>

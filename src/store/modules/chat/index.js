@@ -1,81 +1,7 @@
 const state = {
-  chatsList: [
-    {
-      id: '5a521c44ec7c722908b462b4',
-      avatar: '',
-      name: 'cc',
-      message: [
-        {
-          message: 'hi',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        },
-        {
-          message: '你好2',
-          data: '1496311370052'
-        }
-      ]
-    }
-  ]
+  chatsList: {
+
+  }
 }
 
 const getters = {
@@ -83,10 +9,17 @@ const getters = {
 }
 
 const mutations = {
-  'chatsList' (state, payload) {
+  'chatsList': (state, payload) => {
     state.chatsList = payload
+  },
+  'newMessage': (state, data) => {
+    state.chatsList = Object.assign({}, state.chatsList, data)
+    window.localStorage.setItem('chatXChats', JSON.stringify(state.chatsList))
   }
 }
+
+
+
 export default {
   state,
   getters,

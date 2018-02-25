@@ -38,6 +38,7 @@
         window.localStorage.removeItem('chatXToken')
         this.$store.commit('successLogout')
         this.$router.push({ path: '/' })
+        this.$socket.emit('close')
       }
     }
   }

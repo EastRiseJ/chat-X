@@ -18,4 +18,15 @@ export default {
   #app{
     height: 100%;
   }
+  .tip{
+    text-align: center;
+    padding-top: 1rem;
+    span{
+      background: #f8f8f8;
+      display: inline-block;
+      border-radius: 2rem;
+      padding: 0.2rem 1.8rem;
+      color: #666;
+    }
+  }
 </style>

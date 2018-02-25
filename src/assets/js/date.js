@@ -30,7 +30,7 @@ let formatDatePlus = (date) => {
   let nowDate = new Date()
   let flag = nowDate.toDateString() === date.toDateString()
   if (flag) {
-    return formatDate(date, 'hh : mm')
+    return formatDate(date, 'hh:mm')
   } else {
     return formatDate(date, 'MM-dd')
   }

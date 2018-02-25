@@ -1,9 +1,14 @@
 <template>
   <div id="directories">
     <ul>
-      <li class="addlist" @click="directorieInfo">
-        <div class="container">
-          好友增加请求
+      <li class="addlist directories-item" @click="directorieInfo">
+        <div class="container clearfix">
+          <div class="img fl">
+            <img src="/static/add.jpg" alt="">
+          </div>
+          <div class="txt fr">
+            <p class="title no-linefeed">好友增加请求</p>
+          </div>
         </div>
       </li>
       <item
@@ -36,10 +41,38 @@
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   .addlist{
-    line-height: 3em;
-    padding-left: 0;
+    margin-bottom: 0.4rem;
+  }
+  .directories-item{
+    padding: 0.2rem 0;
+    background: #fff;
     border-bottom:1px solid #f4f4f4;
+    .img{
+      width: 12%;
+      img{
+        width: 100%;
+      }
+    }
+    .txt{
+      position: relative;
+      width: 82%;
+      padding-top: 0.46rem;
+      padding-right: 4em;
+      .title{
+        font-weight: bold;
+      }
+      .message{
+        padding-top: 0.1rem;
+        color: #999999;
+      }
+      .date{
+        position: absolute;
+        width: 4em;
+        right: 0;
+        top: 0;
+      }
+    }
   }
 </style>
